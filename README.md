@@ -1,13 +1,12 @@
 <div align="center">
-<img width="1200" height="475" alt="Screenshot" src="D:\File\image.jpg" />
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Create Interactive MCQs Test
+# Run and deploy your AI Studio app
 
-Just paste your mcqs in raw formate. The AI will handle all the other things for you and make you a neat, interactive and clean look mcq test.
+This contains everything you need to run your app locally.
 
-## Attempt Your Test Now!
-So, what are you waiting for? Challenge yourself now!
+View your app in AI Studio: https://ai.studio/apps/drive/1Jwu2OK6ARFE9ZcfueCZC1tZ_N3xrGYz2
 
 ## Run Locally
 
