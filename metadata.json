@@ -1,0 +1,5 @@
+{
+  "name": "MCQ Test Generator",
+  "description": "An interactive application that takes raw text of multiple-choice questions, parses them using Gemini, and generates a test that users can attempt. After completion, it provides a detailed results summary.",
+  "requestFramePermissions": []
+}
