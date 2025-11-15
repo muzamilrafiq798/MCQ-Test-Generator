@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Loader } from './Loader';
+import { Loader } from './Loader.tsx';
 
 interface InputViewProps {
   onGenerate: (text: string) => void;

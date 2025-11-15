@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Question, UserAnswers } from '../types';
-import { CheckCircleIcon, XCircleIcon } from './Icons';
+import { Question, UserAnswers } from '../types.ts';
+import { CheckCircleIcon, XCircleIcon } from './Icons.tsx';
 
 interface ResultsViewProps {
   questions: Question[];

@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
-import { Question } from '../types';
-import { ThumbUpIcon, ThumbDownIcon } from './Icons';
-import { Confetti } from './Confetti';
+import { Question } from '../types.ts';
+import { ThumbUpIcon, ThumbDownIcon } from './Icons.tsx';
+import { Confetti } from './Confetti.tsx';
 
 interface TestViewProps {
   questions: Question[];

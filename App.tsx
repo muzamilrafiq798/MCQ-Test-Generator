@@ -1,10 +1,11 @@
+
 import React, { useState, useCallback } from 'react';
-import { TestState, Question, UserAnswers } from './types';
-import { parseMCQs } from './services/geminiService';
-import InputView from './components/InputView';
-import TestView from './components/TestView';
-import ResultsView from './components/ResultsView';
-import { LogoIcon } from './components/Icons';
+import { TestState, Question, UserAnswers } from './types.ts';
+import { parseMCQs } from './services/geminiService.ts';
+import InputView from './components/InputView.tsx';
+import TestView from './components/TestView.tsx';
+import ResultsView from './components/ResultsView.tsx';
+import { LogoIcon } from './components/Icons.tsx';
 
 const App: React.FC = () => {
   const [testState, setTestState] = useState<TestState>(TestState.INPUT);
