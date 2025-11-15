@@ -2,13 +2,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Question } from '../types.ts';
 
-const API_KEY = process.env.API_KEY;
+// Safely access the API key without crashing the app if `process` is not defined.
+const API_KEY = (typeof process !== 'undefined' && process.env && process.env.API_KEY) ? process.env.API_KEY : undefined;
 
-if (!API_KEY) {
-    throw new Error("API_KEY environment variable not set");
+let ai: GoogleGenAI | null = null;
+if (API_KEY) {
+    ai = new GoogleGenAI({ apiKey: API_KEY });
 }
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const responseSchema = {
     type: Type.ARRAY,
@@ -36,6 +36,12 @@ const responseSchema = {
 };
 
 export const parseMCQs = async (text: string): Promise<Question[]> => {
+    // Check for the API key inside the function that uses it.
+    // This allows the app to load and show a specific error message to the user.
+    if (!ai) {
+        throw new Error("API key is not configured. This application cannot contact the AI service.");
+    }
+    
     try {
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
@@ -57,6 +63,9 @@ export const parseMCQs = async (text: string): Promise<Question[]> => {
         }
     } catch (error) {
         console.error("Error parsing MCQs with Gemini:", error);
-        throw new Error("Failed to parse questions. The format might be too ambiguous.");
+        if (error instanceof Error && error.message.includes('API key not valid')) {
+             throw new Error("The provided API key is not valid. Please check your configuration.");
+        }
+        throw new Error("Failed to parse questions. The format might be too ambiguous or there was an issue with the AI service.");
     }
 };

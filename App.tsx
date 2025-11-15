@@ -37,7 +37,12 @@ const App: React.FC = () => {
       setTestState(TestState.TESTING);
     } catch (err) {
       console.error(err);
-      setError('Failed to generate test. The AI could not understand the data. Please ensure it is in a clear MCQ format.');
+      const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
+      if (errorMessage.includes("API key is not configured")) {
+           setError('Configuration Error: The application is missing the required API key to connect to the AI service. Please ensure it is configured in the deployment environment.');
+      } else {
+           setError('Failed to generate test. The AI could not understand the data. Please ensure it is in a clear MCQ format.');
+      }
     } finally {
       setIsLoading(false);
     }
